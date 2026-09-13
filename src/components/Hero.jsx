@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ShieldCheck, Timer, Truck } from 'lucide-react'
 
 const TRUST_BADGES = [
-  { icon: Truck, label: 'Free delivery over $50' },
+  { icon: Truck, label: 'Free delivery over Rs. 5,000' },
   { icon: ShieldCheck, label: '100% Fresh Guarantee' },
   { icon: Timer, label: '30-Min Express Delivery' },
 ]

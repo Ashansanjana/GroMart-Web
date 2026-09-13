@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ShoppingCart } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
+import { formatPrice } from '../data/products.js'
 
 export default function MobileCartBar() {
   const { cartCount, subtotal, openCart } = useCart()
@@ -29,7 +30,7 @@ export default function MobileCartBar() {
               </span>
               View Cart
             </span>
-            <span className="font-display text-sm font-bold">${subtotal.toFixed(2)}</span>
+            <span className="font-display text-sm font-bold">{formatPrice(subtotal)}</span>
           </button>
         </motion.div>
       )}

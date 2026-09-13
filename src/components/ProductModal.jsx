@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Heart, Minus, Plus, ShoppingCart, Star, X } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
+import { formatPrice } from '../data/products.js'
 
 export default function ProductModal({ product, onClose }) {
   const { addToCart, toggleWishlist, wishlist } = useCart()
@@ -85,9 +86,9 @@ export default function ProductModal({ product, onClose }) {
             <p className="mt-1 text-sm text-muted-text">{product.unit}</p>
 
             <div className="mt-4 flex items-baseline gap-3">
-              <span className="font-display text-3xl font-bold text-deep-green">${product.price.toFixed(2)}</span>
+              <span className="font-display text-3xl font-bold text-deep-green">{formatPrice(product.price)}</span>
               {product.originalPrice && (
-                <span className="text-base text-muted-text line-through">${product.originalPrice.toFixed(2)}</span>
+                <span className="text-base text-muted-text line-through">{formatPrice(product.originalPrice)}</span>
               )}
             </div>
 

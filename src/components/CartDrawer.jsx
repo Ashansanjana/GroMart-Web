@@ -2,6 +2,9 @@ import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Minus, Plus, ShoppingBag, Trash2, X } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
+import { formatPrice } from '../data/products.js'
+
+const FREE_DELIVERY_THRESHOLD = 5000
 
 export default function CartDrawer() {
   const { isCartOpen, closeCart, cartDetails, updateQty, removeFromCart, subtotal, addToast } = useCart()
@@ -19,7 +22,7 @@ export default function CartDrawer() {
     }
   }, [isCartOpen, closeCart])
 
-  const freeDeliveryGap = Math.max(0, 50 - subtotal)
+  const freeDeliveryGap = Math.max(0, FREE_DELIVERY_THRESHOLD - subtotal)
 
   return (
     <AnimatePresence>
@@ -79,7 +82,7 @@ export default function CartDrawer() {
                 <div className="flex-1 overflow-y-auto px-5 py-4">
                   {freeDeliveryGap > 0 && (
                     <p className="mb-4 rounded-xl bg-fresh-green/10 px-3 py-2 text-xs font-medium text-deep-green">
-                      Add ${freeDeliveryGap.toFixed(2)} more to unlock free delivery!
+                      Add {formatPrice(freeDeliveryGap)} more to unlock free delivery!
                     </p>
                   )}
                   <ul className="flex flex-col gap-4">
@@ -108,7 +111,7 @@ export default function CartDrawer() {
                               <Trash2 size={15} />
                             </button>
                           </div>
-                          <p className="text-xs text-muted-text">${item.price.toFixed(2)} each</p>
+                          <p className="text-xs text-muted-text">{formatPrice(item.price)} each</p>
                           <div className="mt-2 flex items-center justify-between">
                             <div className="flex items-center rounded-lg border border-gray-200">
                               <button
@@ -130,7 +133,7 @@ export default function CartDrawer() {
                               </button>
                             </div>
                             <span className="font-display text-sm font-bold text-deep-green">
-                              ${(item.price * item.qty).toFixed(2)}
+                              {formatPrice(item.price * item.qty)}
                             </span>
                           </div>
                         </div>
@@ -142,7 +145,7 @@ export default function CartDrawer() {
                 <div className="border-t border-gray-200 px-5 py-4">
                   <div className="mb-4 flex items-center justify-between">
                     <span className="text-sm font-medium text-muted-text">Subtotal</span>
-                    <span className="font-display text-xl font-bold text-dark-text">${subtotal.toFixed(2)}</span>
+                    <span className="font-display text-xl font-bold text-dark-text">{formatPrice(subtotal)}</span>
                   </div>
                   <button
                     type="button"

@@ -81,12 +81,12 @@ export default function Footer() {
           <ul className="mt-4 flex flex-col gap-3 text-sm">
             <li className="flex items-start gap-2">
               <MapPin size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
-              123 Market Street, Green City
+              142 Galle Road, Colombo 03, Sri Lanka
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="shrink-0" aria-hidden="true" />
-              <a href="tel:+15551234567" className="hover:text-white">
-                +1 (555) 123-4567
+              <a href="tel:+94771234567" className="hover:text-white">
+                +94 77 123 4567
               </a>
             </li>
             <li className="flex items-center gap-2">

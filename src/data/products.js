@@ -6,6 +6,9 @@
 
 const unsplash = (id, w) => `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`
 
+// Sri Lankan Rupee formatter, e.g. formatPrice(2450) -> "Rs. 2,450"
+export const formatPrice = (value) => `Rs. ${Math.round(value).toLocaleString('en-US')}`
+
 export const categories = [
   {
     id: 'fruits-vegetables',
@@ -54,8 +57,8 @@ export const products = [
     id: 'p1',
     name: 'Organic Fruit Basket',
     category: 'fruits-vegetables',
-    price: 12.99,
-    originalPrice: 15.99,
+    price: 2450,
+    originalPrice: 2950,
     rating: 4.8,
     reviews: 214,
     unit: '1 basket (approx 2kg)',
@@ -67,7 +70,7 @@ export const products = [
     id: 'p2',
     name: 'Farm Fresh Apples',
     category: 'fruits-vegetables',
-    price: 4.49,
+    price: 780,
     originalPrice: null,
     rating: 4.6,
     reviews: 132,
@@ -79,8 +82,8 @@ export const products = [
     id: 'p3',
     name: 'Fresh Raspberries',
     category: 'fruits-vegetables',
-    price: 6.99,
-    originalPrice: 8.49,
+    price: 1450,
+    originalPrice: 1750,
     rating: 4.9,
     reviews: 98,
     unit: '400 g punnet',
@@ -91,7 +94,7 @@ export const products = [
     id: 'p4',
     name: 'Organic Baby Spinach',
     category: 'fruits-vegetables',
-    price: 3.29,
+    price: 220,
     originalPrice: null,
     rating: 4.5,
     reviews: 76,
@@ -103,7 +106,7 @@ export const products = [
     id: 'p5',
     name: 'Organic Whole Milk',
     category: 'dairy-eggs',
-    price: 3.99,
+    price: 420,
     originalPrice: null,
     rating: 4.7,
     reviews: 189,
@@ -115,8 +118,8 @@ export const products = [
     id: 'p6',
     name: 'Farm Fresh Eggs (Dozen)',
     category: 'dairy-eggs',
-    price: 5.49,
-    originalPrice: 6.29,
+    price: 950,
+    originalPrice: 1100,
     rating: 4.8,
     reviews: 156,
     unit: '12 large eggs',
@@ -127,7 +130,7 @@ export const products = [
     id: 'p7',
     name: 'Artisan Sourdough Bread',
     category: 'bakery',
-    price: 5.99,
+    price: 650,
     originalPrice: null,
     rating: 4.9,
     reviews: 241,
@@ -139,8 +142,8 @@ export const products = [
     id: 'p8',
     name: 'Fresh Atlantic Salmon Fillet',
     category: 'meat-seafood',
-    price: 14.99,
-    originalPrice: 17.99,
+    price: 2650,
+    originalPrice: 3100,
     rating: 4.7,
     reviews: 88,
     unit: '400 g',
@@ -151,7 +154,7 @@ export const products = [
     id: 'p9',
     name: 'Premium Ground Beef',
     category: 'meat-seafood',
-    price: 9.99,
+    price: 1150,
     originalPrice: null,
     rating: 4.6,
     reviews: 104,
@@ -163,7 +166,7 @@ export const products = [
     id: 'p10',
     name: 'Cold-Pressed Orange Juice',
     category: 'beverages',
-    price: 4.79,
+    price: 690,
     originalPrice: null,
     rating: 4.8,
     reviews: 167,
@@ -175,8 +178,8 @@ export const products = [
     id: 'p11',
     name: 'Roasted Almonds',
     category: 'snacks',
-    price: 2.99,
-    originalPrice: 3.49,
+    price: 890,
+    originalPrice: 1050,
     rating: 4.4,
     reviews: 212,
     unit: '250 g bag',
@@ -187,7 +190,7 @@ export const products = [
     id: 'p12',
     name: 'Frozen Mixed Vegetables',
     category: 'frozen',
-    price: 3.49,
+    price: 480,
     originalPrice: null,
     rating: 4.5,
     reviews: 91,
@@ -199,7 +202,7 @@ export const products = [
     id: 'p13',
     name: 'Eco-Friendly Dish Soap',
     category: 'household',
-    price: 3.99,
+    price: 380,
     originalPrice: null,
     rating: 4.6,
     reviews: 58,
@@ -211,7 +214,7 @@ export const products = [
     id: 'p14',
     name: 'Sparkling Water',
     category: 'beverages',
-    price: 4.29,
+    price: 420,
     originalPrice: null,
     rating: 4.5,
     reviews: 73,
@@ -224,7 +227,7 @@ export const products = [
 export const testimonials = [
   {
     id: 't1',
-    name: 'Sarah Mitchell',
+    name: 'Nadeesha Perera',
     role: 'Verified Customer',
     quote:
       "GroMark has completely changed how I shop. The produce is always fresh, delivery is genuinely fast, and the app is a joy to use.",
@@ -233,7 +236,7 @@ export const testimonials = [
   },
   {
     id: 't2',
-    name: 'James Okafor',
+    name: 'Kasun Fernando',
     role: 'Verified Customer',
     quote:
       "I was skeptical about ordering groceries online, but GroMark's quality control is excellent. Everything arrives exactly as pictured.",
@@ -242,7 +245,7 @@ export const testimonials = [
   },
   {
     id: 't3',
-    name: 'Daniel Kim',
+    name: 'Dinesh Bandara',
     role: 'Verified Customer',
     quote:
       'The 30-minute express delivery saved me on so many busy weeknights. Prices are fair and the app makes reordering effortless.',
@@ -251,7 +254,7 @@ export const testimonials = [
   },
   {
     id: 't4',
-    name: 'David Torres',
+    name: 'Sanduni Rathnayake',
     role: 'Verified Customer',
     quote:
       "Customer support was fantastic when I needed to adjust an order. It's rare to find a grocery app that actually cares about service.",
@@ -260,10 +263,10 @@ export const testimonials = [
   },
   {
     id: 't5',
-    name: 'Priya Patel',
+    name: 'Priyanka de Silva',
     role: 'Verified Customer',
     quote:
-      'Free delivery over $50 makes weekly shopping so much more affordable. My family has switched entirely to GroMark.',
+      'Free delivery over Rs. 5,000 makes weekly shopping so much more affordable. My family has switched entirely to GroMark.',
     rating: 5,
     avatar: unsplash('1438761681033-6461ffad8d80', 200),
   },
